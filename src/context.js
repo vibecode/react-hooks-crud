@@ -4,11 +4,13 @@ const context = React.createContext({
   todos: [
     {
       id: 1,
-      text: 'lol'
+      text: 'lol',
+      complete: false
     },
     {
       id: 2,
-      text: 'kek'
+      text: 'kek',
+      complete: false
     }
   ]
 })
