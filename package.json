@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "next",
+    "react-dom": "next",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
