@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import TodosContext from '../context'
+import TodoItem from './TodoItem'
 
 export default function TodoList() {
-  const { state, dispatch } = useContext(TodosContext)
+  const { state } = useContext(TodosContext)
 
   const title =
     state.todos.length > 0 ? `${state.todos.length} Todos` : 'Nothing todo'
@@ -12,39 +13,8 @@ export default function TodoList() {
       <h1 className="text-bold text-orange my-10">{title}</h1>
 
       <ul className="list-reset text-white p-0">
-        {state.todos.map(({ id, text, complete }) => (
-          <li className="flex items-center bg-orange my-2 py-4" key={id}>
-            <span
-              className={`cursor-pointer flex-1  ${complete && 'line-through'}`}
-              onClick={() =>
-                dispatch({
-                  type: 'TOGGLE_TODO',
-                  payload: {
-                    id,
-                    complete: !complete
-                  }
-                })
-              }
-            >
-              {text}
-            </span>
-            <button>
-              <img
-                className="h-6 px-1"
-                src="https://icon.now.sh/edit/ffffff"
-                alt="edit"
-              />
-            </button>
-            <button
-              onClick={() => dispatch({ type: 'DELETE_TODO', payload: { id } })}
-            >
-              <img
-                className="h-6 px-1"
-                src="https://icon.now.sh/delete/ffffff"
-                alt="delete"
-              />
-            </button>
-          </li>
+        {state.todos.map(todo => (
+          <TodoItem {...todo} />
         ))}
       </ul>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useCallback, useContext } from 'react'
 import TodosContext from '../context'
 
 function TodoForm() {
-  const [todo, setTodo] = useState('sad')
+  const [todo, setTodo] = useState('')
 
   const { dispatch } = useContext(TodosContext)
 

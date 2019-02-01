@@ -14,6 +14,16 @@ export default (state, { type, payload }) => {
         todos: [...state.todos, todo]
       }
     }
+    case 'UPDATE_TODO': {
+      const todos = state.todos.map(todo => {
+        return todo.id === payload.id ? { ...todo, ...payload } : todo
+      })
+
+      return {
+        ...state,
+        todos
+      }
+    }
     case 'TOGGLE_TODO': {
       const todos = state.todos.map(todo => {
         return todo.id === payload.id ? { ...todo, ...payload } : todo
