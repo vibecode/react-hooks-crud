@@ -35,7 +35,9 @@ export default function TodoList() {
                 alt="edit"
               />
             </button>
-            <button>
+            <button
+              onClick={() => dispatch({ type: 'DELETE_TODO', payload: { id } })}
+            >
               <img
                 className="h-6 px-1"
                 src="https://icon.now.sh/delete/ffffff"
