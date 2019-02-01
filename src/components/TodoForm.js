@@ -17,14 +17,21 @@ function TodoForm() {
   }
 
   return (
-    <form className="flex justify-center p-5" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={todo}
-        className="border-black border-solid border-2"
-        onChange={e => setTodo(e.target.value)}
-      />
-    </form>
+    <div>
+      <form className="flex justify-center" onSubmit={handleSubmit}>
+        <div>
+          <label className="text-center text-orange block mt-10 mb-2">
+            Add something to do:
+          </label>
+          <input
+            type="text"
+            value={todo}
+            className="border-orange border-solid border-2"
+            onChange={e => setTodo(e.target.value)}
+          />
+        </div>
+      </form>
+    </div>
   )
 }
 
