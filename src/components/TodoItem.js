@@ -7,11 +7,16 @@ function TodoItem({ id, complete, text }) {
 
   const handleUpdate = ev => {
     ev.preventDefault()
-    dispatch({ type: 'UPDATE_TODO', payload: { text: editState.text, id } })
-    setEditState({
-      isEdit: false,
-      text: ''
-    })
+
+    const text = editState.text.trim()
+
+    if (text) {
+      dispatch({ type: 'UPDATE_TODO', payload: { text, id } })
+      setEditState({
+        isEdit: false,
+        text: ''
+      })
+    }
   }
 
   const handleEdit = () => {
